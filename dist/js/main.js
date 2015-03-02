@@ -2,7 +2,7 @@ $(document).ready(function() {
   function formHandler($form, endpoint) {
     $success = $form.find('.success').first();
     $errors = $form.find('.errors').first();
-    
+
     $.post(endpoint, $(this).serialize())
       .done(function(data){
         $success.show(200);
@@ -10,7 +10,7 @@ $(document).ready(function() {
       })
       .fail(function(xhr, status, error) {
         $errors.show(200);
-        $success.text('An error occured connecting to our server.');
+        $errors.text('An error occured connecting to our server.');
       });
   }
 
@@ -24,6 +24,22 @@ $(document).ready(function() {
     submitHandler: function(form) {
       formHandler($(form), '/credit-card');
     }
+  });
+
+  $('#server-validation-form').submit(function(event) {
+    $.post('/server-validation', $(this).serialize())
+    .done(function(data){
+      $success = $('#server-validation-form').find('.success').first();
+      $success.show(200);
+      $success.text('Validation configured.');
+    })
+    .fail(function(xhr, status, error) {
+      $errors = $('#server-validation-form').find('.errors').first();
+      $errors.show(200);
+      $errors.text('An error occurred.');
+    });
+
+    event.preventDefault();
   });
 
   // var braintree = Braintree.create("YourClientSideEncryptionKey")
