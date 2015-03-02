@@ -3,16 +3,20 @@ $(document).ready(function() {
     $success = $form.find('.success').first();
     $errors = $form.find('.errors').first();
 
+    var errors = [
+      'Successfully sent.',
+      'An error occured connecting to our server.'
+    ]
+
     $form.submit(function(event) {
       $.post(endpoint, $(this).serialize())
         .done(function(data){
           $success.show(200);
-          $success.text(data);
+          $success.text(errors[0]);
         })
         .fail(function(xhr, status, error) {
           $errors.show(200);
-          var httpResponse = xhr.responseText;
-          $errors.text(error + httpResponse);
+          $success.text(errors[1]);
         });
 
       event.preventDefault();
@@ -22,14 +26,9 @@ $(document).ready(function() {
   formHandler($('#address-form'), '/address');
   $('#address-form').validate();
 
-  var card = new Skeuocard($("#credit-card-form"), {
-    cardNumberPlaceholderChar: '*',
-    genericPlaceholder: '**** **** **** ****'
-  });
-
   formHandler($('#credit-card-form'), '/credit-card');
   $('#credit-card-form').validate();
 
-  var braintree = Braintree.create("YourClientSideEncryptionKey")
-  braintree.onSubmitEncryptForm('braintree-payment-form');
+  // var braintree = Braintree.create("YourClientSideEncryptionKey")
+  // braintree.onSubmitEncryptForm('braintree-payment-form');
 });

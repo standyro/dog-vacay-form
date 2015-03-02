@@ -2,6 +2,10 @@
 
 module.exports = function(grunt) {
   grunt.initConfig({
+    watch: {
+      files: ['*', 'css/*.css', 'img/*', 'js/*', 'tests/*'],
+      tasks: ['b']
+    },
     nodemon: {
       dev: {
         script: 'web.js',
@@ -36,14 +40,29 @@ module.exports = function(grunt) {
           relative: false
         }
       }
+    },
+    concurrent: {
+      dev: {
+        tasks: ['nodemon', 'watch'],
+        options: {
+          logConcurrentOutput: true
+        }
+      }
     }
   });
 
+  grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-bower-concat');
-  grunt.registerTask('watch', ['nodemon:dev']);
-  grunt.registerTask('build', ['clean', 'copy:main', 'concat', 'bower_concat']);
+
+  grunt.registerTask('w', '', function() {
+    var taskList = ['concurrent', 'watch', 'nodemon:dev'];
+    grunt.task.run(taskList);
+  });
+
+  grunt.registerTask('b', ['clean', 'copy:main', 'concat', 'bower_concat']);
 }

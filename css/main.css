@@ -2,3 +2,14 @@ input {
   display: block;
   margin: 0 0 15px 0;
 }
+
+body {
+  font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
+}
+
+button {
+  background: #e65119 !important;
+  color: #ffffff !important;
+  border-color: #e65119 !important;
+  letter-spacing: 2px;
+}

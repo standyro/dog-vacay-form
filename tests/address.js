@@ -1,13 +1,13 @@
 module.exports = {
-  "Demo test Google" : function (browser) {
+  "Address Form Validation": function (browser) {
     browser
-    .url("http://www.google.com")
+    .url("http://localhost:3000")
     .waitForElementVisible('body', 1000)
-    .setValue('input[type=text]', 'nightwatch')
-    .waitForElementVisible('button[name=btnG]', 1000)
-    .click('button[name=btnG]')
+    .setValue('#address-form input[name="first-name"', 'nightwatch')
+    .waitForElementVisible('#address-form button', 1000)
+    .click('#address-form button')
     .pause(1000)
-    .assert.containsText('#main', 'The Night Watch')
+    .assert.containsText('#address-form', 'Cannot be set')
     .end();
   }
 };
