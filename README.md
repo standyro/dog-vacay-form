@@ -41,7 +41,3 @@ Committed version deployed to heroku.
 
 - Uses nightwatch/selenium
 - Tests a few failing cases
-
-### Braintree API Integration
-
-For security purposes, and to avoid direct payment processing the BrainTree javascript API is used. In production, payments should always be submitted by HTTPS.
