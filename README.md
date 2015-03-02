@@ -40,4 +40,4 @@ Committed version deployed to heroku.
 ```npm run test```
 
 - Uses nightwatch/selenium
-- Tests a few failing cases
+- Need to write more tests
