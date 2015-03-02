@@ -2,32 +2,29 @@ $(document).ready(function() {
   function formHandler($form, endpoint) {
     $success = $form.find('.success').first();
     $errors = $form.find('.errors').first();
-
-    var errors = [
-      'Successfully sent.',
-      'An error occured connecting to our server.'
-    ]
-
-    $form.submit(function(event) {
-      $.post(endpoint, $(this).serialize())
-        .done(function(data){
-          $success.show(200);
-          $success.text(errors[0]);
-        })
-        .fail(function(xhr, status, error) {
-          $errors.show(200);
-          $success.text(errors[1]);
-        });
-
-      event.preventDefault();
-    });
+    
+    $.post(endpoint, $(this).serialize())
+      .done(function(data){
+        $success.show(200);
+        $success.text('Successfully sent.');
+      })
+      .fail(function(xhr, status, error) {
+        $errors.show(200);
+        $success.text('An error occured connecting to our server.');
+      });
   }
 
-  formHandler($('#address-form'), '/address');
-  $('#address-form').validate();
+  $("#address-form").validate({
+    submitHandler: function(form) {
+      formHandler($(form), '/address');
+    }
+  });
 
-  formHandler($('#credit-card-form'), '/credit-card');
-  $('#credit-card-form').validate();
+  $("#credit-card-form").validate({
+    submitHandler: function(form) {
+      formHandler($(form), '/credit-card');
+    }
+  });
 
   // var braintree = Braintree.create("YourClientSideEncryptionKey")
   // braintree.onSubmitEncryptForm('braintree-payment-form');
