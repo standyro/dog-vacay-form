@@ -1,0 +1,9 @@
+{
+  "name": "dog-vacay",
+  "dependencies": {
+    "jquery": "^1.11.1",
+    "bootstrap": "~3.3.2",
+    "jquery-validation": "~1.13.1",
+    "skeuocard": "~1.1.0"
+  }
+}
