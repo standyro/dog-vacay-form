@@ -2,6 +2,12 @@
 
 module.exports = function(grunt) {
   grunt.initConfig({
+    nodemon: {
+      dev: {
+        script: 'web.js',
+        exec: 'grunt build'
+      }
+    },
     clean: ["dist"],
     copy: {
       main: {
@@ -25,7 +31,7 @@ module.exports = function(grunt) {
       all: {
         dest: 'dist/js/vendor.js',
         cssDest: 'dist/css/vendor.css',
-        exclude: [],
+        exclude: ['jquery'],
         bowerOptions: {
           relative: false
         }
@@ -33,9 +39,11 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-bower-concat');
-  grunt.registerTask('build', ['clean','copy:main', 'concat', 'bower_concat']);
+  grunt.registerTask('watch', ['nodemon:dev']);
+  grunt.registerTask('build', ['clean', 'copy:main', 'concat', 'bower_concat']);
 }

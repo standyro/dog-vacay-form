@@ -1,12 +1,16 @@
 $(document).ready(function() {
   function formHandler($form, endpoint) {
-    $form.submit(function(e) {
+    $success = $form.find('.success').first();
+    $errors = $form.find('.errors').first();
+
+    $form.submit(function(event) {
       $.post(endpoint, $(this).serialize())
         .done(function(data){
-          $errors.text(data);
+          $success.show(200);
+          $success.text(data);
         })
         .fail(function(xhr, status, error) {
-          $form.find('.errors').first().show(200);
+          $errors.show(200);
           var httpResponse = xhr.responseText;
           $errors.text(error + httpResponse);
         });
