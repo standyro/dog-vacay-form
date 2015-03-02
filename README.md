@@ -7,7 +7,7 @@ github.com/standyro
 
 ## Demo
 
-Either view at dogvacay.herokuapp.com or pull this repo, and run grunt watch.
+Either view at [dogvacay.herokuapp.com](http://dogvacay.herokuapp.com) or pull this repo, and run grunt watch.
 
 ## Background
 
