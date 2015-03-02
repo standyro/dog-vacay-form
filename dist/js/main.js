@@ -15,6 +15,12 @@ $(document).ready(function() {
   }
 
   $("#address-form").validate({
+    rules: {
+      cc_exp_year: {
+        required: true,
+        min: 2015
+      }
+    },
     submitHandler: function(form) {
       formHandler($(form), '/address');
     }
