@@ -19,6 +19,6 @@
     "selenium-binaries": "^0.3.4"
   },
   "dependencies": {
-    "express": "^4.12.1",
+    "express": "^4.12.1"
   }
 }
