@@ -8,7 +8,7 @@ Thanks for considering my resume to DogVacay.
 
 ## Demo
 
-Either view at [dog-vacay-form.herokuapp.com](http://dog-vacay-form.herokuapp.com) or pull this repo, and run grunt watch.
+View at [dog-vacay-form.herokuapp.com](http://dog-vacay-form.herokuapp.com)
 
 ## Background
 
@@ -21,7 +21,7 @@ Requires node/npm.
 ```npm install```
 ```bower install```
 
-While working on code changes, to run a server and build watcher.
+While working on code changes to run a nodemon server on localhost:3000 and watcher:
 
 ```grunt w````
 
