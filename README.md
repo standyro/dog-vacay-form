@@ -2,8 +2,9 @@
 
 Thanks for considering my resume to DogVacay.
 
-standyro.com
-github.com/standyro
+[standyro.com](http://standyro.com)
+[github.com/standyro](http://github.com/standyro)
+
 
 ## Demo
 

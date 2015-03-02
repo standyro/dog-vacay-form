@@ -2,10 +2,10 @@
   "name": "dog-vacay-form",
   "version": "0.0.1",
   "scripts": {
-    "s": "node-dev ./web.js",
-    "serve": "node-dev ./web.js",
-    "server": "node-dev ./web.js",
-    "build": "grunt",
+    "s": "grunt w",
+    "serve": "grunt w",
+    "server": "grunt w",
+    "build": "grunt b",
     "test": "./nightwatch --test tests/address.js"
   },
   "devDependencies": {
